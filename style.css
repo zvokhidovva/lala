@@ -1,0 +1,169 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+}
+.top{
+    height: 70%;
+    width: 100%;
+    flex-direction: column;
+}
+.top .header{
+    height:65%;
+    background: linear-gradient(to bottom left, blue, rgb(97, 1, 97));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    font-weight: normal;
+    font-size: 150px;
+    color: white;
+}
+.top .footer{
+    height: 35%;
+    display: flex;
+}
+img{
+    height: 100%;
+    width: 400px;
+}
+.gallery{
+    text-align: center;
+}
+.gallery-title{
+    position: relative;
+}
+.gallery-menu{
+    margin: 80px auto 50px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.gallery-menu label{
+    border: 3px solid blue;
+    padding: 10px 60px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: blue;
+}
+.gallery-menu label:hover{
+    background-color: lightskyblue;
+    color: white;
+    border: 3px solid white;
+}
+.image{
+    height: 200px;
+    position: relative;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.gallery-content{
+    width: 92%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 25px;
+}
+#menu1:checked ~ .gallery .gallery-content .image{
+    opacity: 1;
+}
+#menu3:checked ~ .gallery .gallery-content .computer{
+    opacity: 1;
+    position: relative;
+}
+#menu3:checked ~ .gallery .gallery-content .tree,
+#menu3:checked ~ .gallery .gallery-content .flower,
+#menu3:checked ~ .gallery .gallery-content .water,
+#menu3:checked ~ .gallery .gallery-content .castle{
+    opacity: 0;
+    position: absolute;
+}
+#menu2:checked ~ .gallery .gallery-content .tree{
+    opacity: 1;
+    position: relative;
+}
+#menu2:checked ~ .gallery .gallery-content .computer,
+#menu2:checked ~ .gallery .gallery-content .flower,
+#menu2:checked ~ .gallery .gallery-content .water,
+#menu2:checked ~ .gallery .gallery-content .castle{
+    opacity: 0;
+    position: absolute;
+}
+#menu4:checked ~ .gallery .gallery-content .flower{
+    opacity: 1;
+    position: relative;
+}
+#menu4:checked ~ .gallery .gallery-content .computer,
+#menu4:checked ~ .gallery .gallery-content .tree,
+#menu4:checked ~ .gallery .gallery-content .water,
+#menu4:checked ~ .gallery .gallery-content .castle
+{
+    opacity: 0;
+    position: absolute;
+}
+#menu5:checked ~ .gallery .gallery-content .castle{
+    opacity: 1;
+    position: relative;
+}
+#menu5:checked ~ .gallery .gallery-content .computer,
+#menu5:checked ~ .gallery .gallery-content .tree,
+#menu5:checked ~ .gallery .gallery-content .flower,
+#menu5:checked ~ .gallery .gallery-content .water{
+    opacity: 0;
+    position: absolute;
+}
+#menu6:checked ~ .gallery .gallery-content .water{
+    opacity: 1;
+    position: relative;
+}
+#menu6:checked ~ .gallery .gallery-content .computer,
+#menu6:checked ~ .gallery .gallery-content .tree,
+#menu6:checked ~ .gallery .gallery-content .castle,
+#menu6:checked ~ .gallery .gallery-content .flower{
+    opacity: 0;
+    position: absolute;
+}
+.image::before{
+    content: "Gallery";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    font-style: 50px;
+    color:  white;
+    font-weight: bold;
+    font-family: sans-serif;
+    opacity: 0;
+    margin-top: -100px;
+    transition: 0.5s;
+    z-index: 1;
+}
+.image:hover::before{
+    opacity: 1;
+    margin-top: 0;
+}
+.image::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: 0.3s;
+}
+.image:hover::after{
+    opacity: 1;
+    height: 100%;
+}
+input{
+    display: none;
+}
